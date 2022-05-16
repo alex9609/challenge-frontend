@@ -18,8 +18,10 @@
       cargarProductos();
     }
 
-    function paginacion(productos){
-      console.log(productos)
+    let paginas =0;
+
+    let buttonsAndPages = (productos) => {
+      paginas = Math.ceil(productos.length / 10);
     }
 
 
@@ -53,17 +55,19 @@
             </thead>
             <tbody>
               {#each products as prod}
+              {#if products.length > 10}
+                 {buttonsAndPages(products)}
+              {/if}
               <tr>
                 <td class="nameProduct">{prod.nameProduct}</td>
                 <td>{prod.idProduct}</td>
                 <td>{prod.typeProduct}</td>
-                {#if products.length > 10}
-                   {paginacion(products)}
-                {/if}
+                <td>{paginas}</td>
               </tr>
               {/each}
             </tbody>
           </table>
+          
       </div>
     </div>
 </div>

@@ -1,5 +1,6 @@
 <script>
 import Table from "./Table.svelte"
+import Table2 from "./Table2.svelte"
 
 let products = [];
 let cargarProductos = async () =>{
@@ -49,16 +50,15 @@ let cargarProductos = async () =>{
   cargarProductos();
 </script>
 
-<div class="headerProduct col-lg-10 col-md-8 col-sm-12 d-flex justify-content-start ">
-  <h2 class="p-3">Productos</h2>
+<div class="productHeader col-lg-10 col-md-8 col-sm-12 d-flex justify-content-start align-items-center ">
+  <h2 >Productos</h2>
   <button
     class="create btn"
     data-bs-toggle="modal"
     data-bs-target="#modalCreationProducts">Crear nuevo</button
   >
 </div>
-<Table {products}></Table>
-
+<Table2 {products}></Table2>
 <!--Modal-->
 <div
   class="modal fade"
@@ -124,7 +124,10 @@ let cargarProductos = async () =>{
 </div>
 
 <style>
-  
+
+  .productHeader{
+    margin-top: 2%;
+  }
   .modal-content {
     background-color: rgb(4, 28, 44);
     color: white;
@@ -162,6 +165,6 @@ let cargarProductos = async () =>{
     background-color: #00B5E2;
     margin-left: 30%;
     margin-top: 2%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
   }
 </style>

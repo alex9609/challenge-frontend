@@ -1,8 +1,11 @@
 <script>
   import CreateProduct from "./CreateProduct.svelte"
+  import Header from "./header.svelte";
   import Footer from "./Footer.svelte";
+  import Navbar from "./Navbar.svelte";
   import { getAuth, onAuthStateChanged } from "firebase/auth";
   import { navigate } from "svelte-routing";
+  
   const auth = getAuth();
   let name = "";
   onAuthStateChanged(auth, (user) => {
@@ -13,7 +16,12 @@
     }
   });
 </script>
-
+<header>
+  <Header></Header>
+</header>
+<nav>
+  <Navbar></Navbar>
+</nav>
 <div class="main row">
   <CreateProduct></CreateProduct>
 </div>
@@ -21,9 +29,7 @@
   <Footer/>
 </footer>
 <style>
-  .main{
-    min-height: 100%;
-  }
+  
   .main {
     /*background-color: red;*/
     background-color: #02111a;

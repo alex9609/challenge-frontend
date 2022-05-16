@@ -2,10 +2,7 @@
     import Navbar from "../components/Navbar.svelte"
     import Header from "../components/header.svelte";
     import MainProducts from "../components/MainProducts.svelte";
-    import ListProducts from "../components/ListProducts.svelte";
     import Footer from "../components/Footer.svelte";
-    import { getAuth, signOut } from "firebase/auth";
-    import { navigate } from "svelte-routing";
 
 </script>
 <div class="contain">
@@ -16,12 +13,19 @@
         <Navbar></Navbar>
     </nav>
     <main>
-        <!--<MainProducts></MainProducts>--> 
-        <ListProducts></ListProducts>
-  </main>
+        <MainProducts></MainProducts>
+    </main>
 </div>
-
+<footer>
+    <Footer></Footer>
+</footer>
 <style>
-   
+    main{
+        height: 90%;
+        background-image: url("/images/BackgroundHome.png");
+        background-attachment: calc();
+        background-size: 100%;
+    }
     
+
 </style>

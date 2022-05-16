@@ -10,35 +10,33 @@
       } else {
           navigate('/',{replace:true});
       }
-    });
-    
+    });    
 </script>
-<div class="main d-flex justify-content-center">
+<div class="main  d-flex align-items-center">
     <div class="row">
-        <div class="col content-main d-flex align-items-center">
-          <p>
+        <div class="texto col-7 d-flex justify-content-center align-items-center">
+          <p class="text-center">
             Hola {name} , lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida viverra nisi nec cursus.
           </p>
         </div>
-        <div class="col">
-        </div>
-      </div>
+        <div class="col-5"></div>
+    </div>
 </div>
-<footer>
-  <Footer></Footer>
-</footer>
 <style>
-    .main{
-        height: 90%;
-        background-image: url("/images/photoMainPage.png");
-    }
-     .content-main{
-        padding-left: 50px;
-        width: 40%;
-        text-align: justify;
-        font-size: 1.5rem;
-        font-family: 'Nunito',sans-serif;
-        font-weight: bold;
-        color: white;
-    }
+  .main{
+    height: 100%;
+  }
+  .row{
+    margin-left: 10%;
+    margin-right: 10%;
+    min-height: 100%;
+  }
+
+  .texto{
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+  }
+
+    
 </style>

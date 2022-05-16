@@ -2,14 +2,17 @@
 	import {Router, Link, Route} from "svelte-routing";
 	import Home from "./views/Home.svelte";
 	import Main from "./views/Main.svelte";
+	import ListProducts from "./components/ListProducts.svelte"
 </script>
 	<Router>
 		<Route path="/">
-			<!--<Main></Main>-->
 			<Home></Home>
 		</Route>
 		<Route path="/Main">
 			<Main></Main>
+		</Route>
+		<Route path="/ListProducts">
+			<ListProducts></ListProducts>
 		</Route>
 	</Router>
 <style>
@@ -19,7 +22,6 @@
     margin: 0;
     padding: 0;
 	width: 100%;
-	height: 100%;
 	background-color:#02111A;
   }
 </style>

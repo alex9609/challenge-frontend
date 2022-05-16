@@ -16,14 +16,14 @@
 <nav class="contain-nav">
     <div class="row">
         <div class="col-2 d-flex align-items-center">
-            <a  href="/">
+            <a  href="/Main">
                 <img class="bvc-image" src="/images/bvc.png" alt="">
             </a>
         </div>
         <div class="col-8 d-flex align-items-center">
             <ul class="main-menu d-flex justify-content-start ">
                 <li>
-                    <a class="enlaces products" href="/">Productos</a>
+                    <a class="enlaces products" href="/ListProducts">Productos</a>
                 </li>
                 <span>|</span>
                 <li>
@@ -39,7 +39,6 @@
                 <h3>Hola</h3>
                 <p>{name}</p>
         </div>
-
     </div>
 </nav>
 
