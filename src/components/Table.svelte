@@ -1,12 +1,21 @@
 <script>
      let filtrar = "";
      export let products;
+     let cargarProductos = async () =>{
+        await fetch("http://localhost:8081/product/consult/"+filtrar)
+        .then(res => res.json()).catch(console.log)
+        .then((datosRespuesta) => { //Me devuelve los datos respuesta
+			products = datosRespuesta; //Almaceno los datos en un arreglo
+		  }).catch(console.log) //Impresion de los rerores si hay errores
+  }
     $: if (filtrar === "Renta fija"){
-        console.log("Renta fija")
+        cargarProductos();
     }else if (filtrar === "Renta variable") {
-        console.log("Renta variable")
+        cargarProductos();
     }else if (filtrar === "Derivado"){
-        console.log("Derivado")
+        cargarProductos();
+    }else{
+      cargarProductos();
     }
 
 </script>
@@ -18,27 +27,43 @@
         <select
           class="select form-select"
           aria-label="Default select example"
-          placeholder="Tipo producto"
           bind:value={filtrar}
-         
+          
         >
+          <option selected value="">Tipo de producto</option>
           <option value="Renta fija">Renta fija</option>
           <option value="Renta variable">Renta variable</option>
           <option value="Derivado">Derivado</option>
         </select>
       </div>
     </div>
-    <div class="row">
-        {#each products as prod}
-             <div>{prod.idProduct} {prod.nameProduct} {prod.typeProduct}</div>
-        {/each}
+    <div class="row d-flex justify-content-center">
+        <div class="col-sm-8 ">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Id</th>
+                <th>Tipo producto</th>
+              </tr>
+            </thead>
+            <tbody>
+              {#each products as prod}
+              <tr>
+                <td class="nameProduct">{prod.nameProduct}</td>
+                <td>{prod.idProduct}</td>
+                <td>{prod.typeProduct}</td>
+              </tr>
+              {/each}
+            </tbody>
+          </table>
+      </div>
     </div>
-    
-  </div>
+</div>
 
   <style>
       .table{
-          background-color: blue;
+          border-top: none;
           margin-left: 0;
       }
       .filtrar{
@@ -48,10 +73,21 @@
       .select{
           background-color:#02111a;
           color: #00B5E2;
-          border: none;
           border-radius: 5px;
-          border-bottom: 3px #00B5E2;
+          border-top: 13px;
+         
+      }
+      th{
+
+        font-weight: bold;
+      }
+      td,th{
+        text-align: center;
+        color: white;
       }
 
+      .nameProduct{
+        color: #00B5E2;
+      }
 
   </style>

@@ -8,10 +8,9 @@ let cargarProductos = async () =>{
         .then(res => res.json()).catch(console.log)
         .then((datosRespuesta) => { //Me devuelve los datos respuesta
 			products = datosRespuesta; //Almaceno los datos en un arreglo
-			console.log(products); //Imprimir el array de empleados
+			//console.log(products); //Imprimir el array de empleados
 		}).catch(console.log) //Impresion de los rerores si hay errores
 }
-  let filtrar = "";
 
   let producto = {
     idProduct: "",
@@ -50,10 +49,10 @@ let cargarProductos = async () =>{
   cargarProductos();
 </script>
 
-<div class="col-4 col-md-8 col-sm-12 d-flex ">
+<div class="headerProduct col-lg-10 col-md-8 col-sm-12 d-flex justify-content-start ">
   <h2 class="p-3">Productos</h2>
   <button
-    class="m-3 create btn btn-primary"
+    class="create btn"
     data-bs-toggle="modal"
     data-bs-target="#modalCreationProducts">Crear nuevo</button
   >
@@ -125,6 +124,7 @@ let cargarProductos = async () =>{
 </div>
 
 <style>
+  
   .modal-content {
     background-color: rgb(4, 28, 44);
     color: white;
@@ -156,5 +156,12 @@ let cargarProductos = async () =>{
   h2{
     color: white;
     font-weight: bold;
+  }
+  .create{
+    color: white;
+    background-color: #00B5E2;
+    margin-left: 30%;
+    margin-top: 2%;
+    margin-bottom: 2%;
   }
 </style>

@@ -17,15 +17,16 @@
 <div class="main row">
   <CreateProduct></CreateProduct>
 </div>
-
 <footer>
   <Footer />
 </footer>
-
 <style>
+  .main{
+    min-height: 100%;
+  }
   .main {
-    background-color: red;
-    /*background-color: #02111a;*/
+    /*background-color: red;*/
+    background-color: #02111a;
     margin-left: 10%;
     margin-right: 10%;
   }
