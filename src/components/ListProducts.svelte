@@ -18,7 +18,7 @@
   <CreateProduct></CreateProduct>
 </div>
 <footer>
-  <Footer />
+  <Footer/>
 </footer>
 <style>
   .main{
@@ -29,6 +29,11 @@
     background-color: #02111a;
     margin-left: 10%;
     margin-right: 10%;
+  }
+
+  footer{
+    margin-top: 10%;
+    margin-bottom: 0px;
   }
 
 </style>

@@ -13,61 +13,77 @@
 </script>
 <br>
 <br>
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">
-            <img class="navbar-img" src="/images/bvc.png" alt="">
-        </a>
-          <ul class="navbar-nav d-flex justify-content-start">
-            <li class="nav-item active">
-                <a class="products nav-link" href="/">Productos</a>
-            </li>
-            <li class="nav-item active">
-                <span class="pipe" >|</span>
-            </li>
-          </ul>
-          <div class="saludo d-flex flex-column">
+<nav class="contain-nav">
+    <div class="row">
+        <div class="col-2 d-flex align-items-center">
+            <a  href="/">
+                <img class="bvc-image" src="/images/bvc.png" alt="">
+            </a>
+        </div>
+        <div class="col-8 d-flex align-items-center">
+            <ul class="main-menu d-flex justify-content-start ">
+                <li>
+                    <a class="enlaces products" href="/">Productos</a>
+                </li>
+                <span>|</span>
+                <li>
+                    <span class="enlaces" >About us</span>
+                </li>
+                <span>|</span>
+                <li>
+                    <span class="enlaces" >Work with us</span>
+                </li>
+              </ul>
+        </div>
+        <div class="col-2 user text-end">
                 <h3>Hola</h3>
                 <p>{name}</p>
-          </div>
+        </div>
+
     </div>
 </nav>
+
 <style>
-    .navbar{
-        padding-right: 20px;
-        padding-left: 100px;
-        height:12%;
-        background-color: black;
+    .contain-nav{
+        background-color: #02111a;
     }
-    .navbar-img{
-        width: 50%;
+    .row{
+        margin-left: 10%;
+        margin-right: 10%;
     }
-    .nav-item a{
-        padding-left: 20px;
-        padding-right: 20px;
+    .bvc-image{
+        width: 95px;
+        height: 60px;
+    }
+
+    li{
+        margin-right: 4%;
+    }
+
+    .main-menu{
+        list-style: none;
+        width: 100%;
+    }
+
+    .enlaces{
         text-decoration: none;
-        font-size: 22px;
+        color: #00B5E2;
         font-weight: bold;
+        font-size: 25px;
+    }
+    span{
+        font-size: 25px;
+        color: white;
+        margin-right: 20px;
+    }
+
+    .user{
         color: white;
     }
-    .nav-item a:hover{
-        color: white;
-        text-decoration: underline;
-    }
-    .saludo{
-        text-align: end;
-        color: white;
-        
-    }
-    .saludo h3{
-        font-size: 20px;
-    }
-    .saludo p{
-        font-size: 15px;
-    }
-    .nav-item .pipe{
-        font-size: 30px;
+
+    p{
         font-weight: bold;
-        color:#0c496e;
     }
+
+
 </style>
