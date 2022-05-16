@@ -1,27 +1,18 @@
 <script>
-import { navigate } from "svelte-routing";
-import { onMount } from "svelte";
+import Table from "./Table.svelte"
 
 let products = [];
-let cargarProductos = () =>{
+let cargarProductos = async () =>{
         //Pedir la respuesta en formato json
-        fetch("http://localhost:8081/product/consult")
+        await fetch("http://localhost:8081/product/consult")
         .then(res => res.json()).catch(console.log)
         .then((datosRespuesta) => { //Me devuelve los datos respuesta
 			products = datosRespuesta; //Almaceno los datos en un arreglo
 			console.log(products); //Imprimir el array de empleados
 		}).catch(console.log) //Impresion de los rerores si hay errores
 }
-
-async function cargar(){
-    const productos = await fetch("http://localhost:8081/product/consult").then(res => res.json())
-            .catch(error => console.error('Error:', error))
-            .then(response => products =  response);
-            console.log(productos)
-
-}
-
   let filtrar = "";
+
   let producto = {
     idProduct: "",
     nameProduct: "",
@@ -48,7 +39,6 @@ async function cargar(){
             console.log(response);
 
       limpiar();
-      //cargar();
       cargarProductos();
     }
   }
@@ -57,11 +47,10 @@ async function cargar(){
     (producto.nameProduct = ""),
       (producto.typeProduct = "")
   }
-
   cargarProductos();
 </script>
 
-<div class="col-4 d-flex ">
+<div class="col-4 col-md-8 col-sm-12 d-flex ">
   <h2 class="p-3">Productos</h2>
   <button
     class="m-3 create btn btn-primary"
@@ -69,15 +58,7 @@ async function cargar(){
     data-bs-target="#modalCreationProducts">Crear nuevo</button
   >
 </div>
-
-<div class="col" />
-
-<div class="row">
-    {#each products as prod}
-         <!-- content here -->
-         <div>{prod.idProduct} {prod.nameProduct} {prod.typeProduct}</div>
-    {/each}
-</div>
+<Table {products}></Table>
 
 <!--Modal-->
 <div
@@ -126,7 +107,7 @@ async function cargar(){
         >
           <option value="Renta fija">Renta fija</option>
           <option value="Renta variable">Renta variable</option>
-          <option value="Derivados">Derivados</option>
+          <option value="Derivado">Derivados</option>
         </select>
       </div>
       <div class="modal-footer">
@@ -170,6 +151,10 @@ async function cargar(){
   }
 
   .cancelar {
+    font-weight: bold;
+  }
+  h2{
+    color: white;
     font-weight: bold;
   }
 </style>

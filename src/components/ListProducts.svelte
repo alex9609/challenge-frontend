@@ -16,25 +16,6 @@
 
 <div class="main row">
   <CreateProduct></CreateProduct>
-  <!--Table-->
-  <div class="row">
-    <div class="row">
-      <div class="col col-lg-4 col-md-6 organice  flex-row bd-highlight mb-3">
-        <p class="filtrar">Filtrar por:</p>
-        <select
-          class="form-select"
-          aria-label="Default select example"
-         
-        >
-          <option selected>Tipo de producto</option>
-          <option value="Renta fija">Renta fija</option>
-          <option value="Renta variable">Renta variable</option>
-          <option value="Derivados">Derivados</option>
-        </select>
-      </div>
-    </div>
-    <div class="col table container" />
-  </div>
 </div>
 
 <footer>
@@ -48,7 +29,5 @@
     margin-left: 10%;
     margin-right: 10%;
   }
-  p{
-    color: white;
-  }
+
 </style>
