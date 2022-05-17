@@ -25,14 +25,7 @@
                 <li>
                     <a class="enlaces products" href="/ListProducts">Productos</a>
                 </li>
-                <span>|</span>
-                <li>
-                    <span class="enlaces" >About us</span>
-                </li>
-                <span>|</span>
-                <li>
-                    <span class="enlaces" >Work with us</span>
-                </li>
+                
               </ul>
         </div>
         <div class="col-2 user text-end">

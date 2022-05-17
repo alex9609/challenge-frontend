@@ -35,9 +35,7 @@ let cargarProductos = async () =>{
              }
             }).then(res => res.json())
             .catch(error => console.error('Error:', error))
-            .then(response => console.log('Success:', response));;
-            console.log(response);
-
+            .then(response => console.log('Success:', response));
       limpiar();
       cargarProductos();
     }
@@ -58,7 +56,7 @@ let cargarProductos = async () =>{
     data-bs-target="#modalCreationProducts">Crear nuevo</button
   >
 </div>
-<Table2 {products}></Table2>
+<Table {products}></Table>
 <!--Modal-->
 <div
   class="modal fade"
@@ -110,7 +108,9 @@ let cargarProductos = async () =>{
         </select>
       </div>
       <div class="modal-footer">
-        <button class="guardar btn btn-primary" on:click={guardarProducto}
+        <button class="guardar btn btn-primary"
+        
+        on:click={guardarProducto}
           >Guardar</button
         >
         <button

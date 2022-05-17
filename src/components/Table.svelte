@@ -1,6 +1,7 @@
 <script>
      let filtrar = "";
      export let products;
+
      let cargarProductos = async () =>{
         await fetch("http://localhost:8081/product/consult/"+filtrar)
         .then(res => res.json()).catch(console.log)
@@ -8,7 +9,8 @@
 			products = datosRespuesta; //Almaceno los datos en un arreglo
 		  }).catch(console.log) //Impresion de los rerores si hay errores
     }
-    $: if (filtrar === "Renta fija"){
+
+    $:if (filtrar === "Renta fija"){
         cargarProductos();
     }else if (filtrar === "Renta variable") {
         cargarProductos();
@@ -17,12 +19,6 @@
     }else{
       cargarProductos();
     }
-
-    function paginacion(productos){
-      console.log(productos)
-    }
-
-
 </script>
 <!--Table-->
 <div class="row table">
@@ -57,9 +53,6 @@
                 <td class="nameProduct">{prod.nameProduct}</td>
                 <td>{prod.idProduct}</td>
                 <td>{prod.typeProduct}</td>
-                {#if products.length > 10}
-                   {paginacion(products)}
-                {/if}
               </tr>
               {/each}
             </tbody>

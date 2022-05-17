@@ -21,6 +21,11 @@
   }
     .contain{
         background-image:url("/images/BackgroundHome.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        height: 100vh;
     }
     .container{
         width: 70%;

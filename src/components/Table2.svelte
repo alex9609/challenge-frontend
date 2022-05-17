@@ -1,11 +1,13 @@
 <script>
      let filtrar = "";
+     let paginas = 0;
+
      export let products;
      let cargarProductos = async () =>{
         await fetch("http://localhost:8081/product/consult/"+filtrar)
         .then(res => res.json()).catch(console.log)
         .then((datosRespuesta) => { //Me devuelve los datos respuesta
-			products = datosRespuesta; //Almaceno los datos en un arreglo
+			    products = datosRespuesta; //Almaceno los datos en un arreglo
 		  }).catch(console.log) //Impresion de los rerores si hay errores
     }
     $: if (filtrar === "Renta fija"){
@@ -18,16 +20,30 @@
       cargarProductos();
     }
 
-    let paginas =0;
-
-    let buttonsAndPages = (productos) => {
-      paginas = Math.ceil(productos.length / 10);
+    let arrayBotones = [];
+    function botonesCantidad(productos) {
+        if(products.length>10){
+        paginas = Math.ceil(products.length / 10);
+        let conteo = 10;
+        for(let i = 0; i < 2;i++){
+          arrayBotones.push(conteo)
+          conteo = conteo+10;
+        }
+      }
     }
 
 
-</script>
+    function paginacion(boton){
+      console.log(products)
+      console.log(boton)
+      
+    }
+
+  </script>
+
 <!--Table-->
 <div class="row table">
+    {botonesCantidad(products)}
     <div class="row">
       <div class="col col-lg-4 col-md-6 organice  flex-row bd-highlight mb-3">
         <p class="filtrar">Filtrar por:</p>
@@ -55,22 +71,27 @@
             </thead>
             <tbody>
               {#each products as prod}
-              {#if products.length > 10}
-                 {buttonsAndPages(products)}
-              {/if}
               <tr>
                 <td class="nameProduct">{prod.nameProduct}</td>
                 <td>{prod.idProduct}</td>
                 <td>{prod.typeProduct}</td>
-                <td>{paginas}</td>
               </tr>
               {/each}
             </tbody>
           </table>
-          
+          {#if products.length >0}
+                 {#each arrayBotones as boton,index}
+                    <button class="btn  ms-1 btn-primary"on:click={() => paginacion(boton)}>
+                      {index+1}
+                    </button>
+                 {/each}
+                 
+          {/if}
       </div>
     </div>
+    
 </div>
+
 
   <style>
       .table{
